@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>ব্রাহ্মণবাড়িয়া বাসি (Brahmanbaria Bashi)</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo"><span>🧭</span> <span id="appName">ব্রাহ্মণবাড়িয়া বাসি</span></div>
+    <div class="header-actions">
+      <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+      <button class="profile-btn" onclick="openModule('profile')">👤</button>
+    </div>
+  </header>
+  <main>
+    <section id="dashboard" class="dashboard active">
+      <h2>ড্যাশবোর্ড</h2>
+      <div class="grid">
+        <!-- Feature grid items, icons are emojis for clarity in static prototype -->
+        <div class="grid-item" onclick="openModule('delivery')" data-anim="fadeInUp"><span>🚚</span><div>চল দেই</div></div>
+        <div class="grid-item" onclick="openModule('report')" data-anim="fadeInUp"><span>📸</span><div>চোখে পড়েছে</div></div>
+        <div class="grid-item" onclick="openModule('forum')" data-anim="fadeInUp"><span>💬</span><div>মতামত</div></div>
+        <div class="grid-item" onclick="openModule('volunteer')" data-anim="fadeInUp"><span>💪</span><div>সহায় হাত</div></div>
+        <div class="grid-item" onclick="openModule('emergency')" data-anim="fadeInUp"><span>⚠️</span><div>বাচাও</div></div>
+        <div class="grid-item" onclick="openModule('streetStories')" data-anim="fadeInUp"><span>🎥</span><div>রাস্তাঘাটের গল্প</div></div>
+        <div class="grid-item" onclick="openModule('corruptionMap')" data-anim="fadeInUp"><span>🗺️</span><div>দুর্নীতির মানচিত্র</div></div>
+        <div class="grid-item" onclick="openModule('budget')" data-anim="fadeInUp"><span>💰</span><div>টাকার হিসাব</div></div>
+        <div class="grid-item" onclick="openModule('rights')" data-anim="fadeInUp"><span>📚</span><div>অধিকার জানো</div></div>
+        <div class="grid-item" onclick="openModule('anonymous')" data-anim="fadeInUp"><span>🕵️</span><div>নীরব চিৎকার</div></div>
+        <div class="grid-item" onclick="openModule('leaderboard')" data-anim="fadeInUp"><span>🏅</span><div>নীরব বীরেরা</div></div>
+        <div class="grid-item" onclick="openModule('calendar')" data-anim="fadeInUp"><span>📅</span><div>ঘটনাপঞ্জি</div></div>
+        <div class="grid-item" onclick="openModule('memes')" data-anim="fadeInUp"><span>🎨</span><div>মিম বাহিনী</div></div>
+        <div class="grid-item" onclick="openModule('missions')" data-anim="fadeInUp"><span>🧩</span><div>নাগরিক মিশন</div></div>
+        <div class="grid-item" onclick="openModule('lifeStories')" data-anim="fadeInUp"><span>🧠</span><div>জীবনের গল্প</div></div>
+        <div class="grid-item" onclick="openModule('truthBomb')" data-anim="fadeInUp"><span>💣</span><div>সত্যের ধাক্কা</div></div>
+        <div class="grid-item" onclick="openModule('impactWall')" data-anim="fadeInUp"><span>🖼️</span><div>পরিবর্তনের দেয়াল</div></div>
+        <div class="grid-item" onclick="openModule('awards')" data-anim="fadeInUp"><span>👑</span><div>জনতার দরবার</div></div>
+      </div>
+    </section>
+    <!-- All modules (screens) below, hidden by default -->
+    <section id="delivery" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>🚚 চল দেই ব্রাহ্মণবাড়িয়া</h2>
+      <div class="module-content">
+        <form class="delivery-form">
+          <label>বিভাগ নির্বাচন করুন:
+            <select>
+              <option>খাবার</option>
+              <option>মুদির সামগ্রী</option>
+              <option>ডকুমেন্ট</option>
+              <option>অন্যান্য</option>
+            </select>
+          </label>
+          <label>পিকআপ লোকেশন: <input placeholder="আপনার ঠিকানা"></label>
+          <label>ডেলিভারি লোকেশন: <input placeholder="গন্তব্য"></label>
+          <button type="button" class="cta" onclick="showToast('সফলভাবে অনুরোধ পাঠানো হয়েছে!')">অনুরোধ করুন</button>
+        </form>
+        <div class="status-card anim-slide-in">
+          <div>🗺️ <b>রিয়েল-টাইম ট্র্যাকিং</b> (ডেমো)</div>
+          <div class="fake-map"></div>
+        </div>
+      </div>
+    </section>
+    <section id="report" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>📸 চোখে পড়েছে ব্রাহ্মণবাড়িয়া</h2>
+      <div class="module-content">
+        <button class="cta" onclick="showToast('ছবি আপলোড ডেমো!')">ছবি তুলুন / আপলোড করুন</button>
+        <div class="report-feed anim-fade-in">
+          <div class="report-card">
+            <div>🗑️ <b>Garbage dumped at Station Road</b></div>
+            <div>স্থান: স্টেশন রোড • <span class="badge">নিষ্পত্তি হয়নি</span></div>
+            <div>👍 ১০ | 💬 ৩</div>
+          </div>
+          <div class="report-card">
+            <div>💸 <b>Bribery in Municipality Office</b></div>
+            <div>স্থান: পৌরসভা • <span class="badge resolved">নিষ্পত্তি হয়েছে</span></div>
+            <div>👍 ২৬ | 💬 ৫</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="forum" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>💬 ব্রাহ্মণবাড়িয়ার মতামত</h2>
+      <div class="module-content">
+        <div class="post-card anim-slide-in">
+          <div class="post-title">"ব্রাহ্মণবাড়িয়ার রাস্তায় পানির সমস্যা মেটাতে হবে!"</div>
+          <div class="post-meta">আইডিয়া • 👍 ১৫ • 💬 ২</div>
+        </div>
+        <div class="post-card anim-slide-in">
+          <div class="post-title">"বাসস্ট্যান্ডে শৌচাগার দরকার।"</div>
+          <div class="post-meta">সমাধান • 👍 ২১ • 💬 ৫</div>
+        </div>
+      </div>
+    </section>
+    <section id="volunteer" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>💪 সহায় হাত ব্রাহ্মণবাড়িয়া</h2>
+      <div class="module-content">
+        <div class="mission-card anim-fade-in">
+          <div>🧹 "ক্লিন আপ মিশন"</div>
+          <button class="cta small" onclick="showToast('মিশনে যোগ দেয়া হয়েছে!')">যোগ দিন</button>
+        </div>
+        <div class="mission-card anim-fade-in">
+          <div>🩸 "রক্তদান অভিযান"</div>
+          <button class="cta small" onclick="showToast('মিশনে যোগ দেয়া হয়েছে!')">যোগ দিন</button>
+        </div>
+      </div>
+    </section>
+    <section id="emergency" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>⚠️ বাচাও ব্রাহ্মণবাড়িয়া!</h2>
+      <div class="module-content center">
+        <button class="emergency-btn anim-pulse" onclick="showToast('জরুরি সঙ্কেত পাঠানো হয়েছে!')">বাচাও</button>
+        <div class="emergency-status anim-fade-in">📍 অবস্থান পাঠানো হয়েছে | 📞 জরুরি সংযোগ</div>
+      </div>
+    </section>
+    <section id="streetStories" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>🎥 রাস্তাঘাটের গল্প</h2>
+      <div class="module-content">
+        <div class="story-card anim-slide-in">
+          <div>🌧️ "বৃষ্টির দিনে টিএসসি মোড়"</div>
+          <video src="" controls poster="assets/images/rainy-thumb.jpg" width="100%"></video>
+        </div>
+        <div class="story-card anim-slide-in">
+          <div>🛒 "বাজারের গল্প"</div>
+          <video src="" controls poster="assets/images/market-thumb.jpg" width="100%"></video>
+        </div>
+      </div>
+    </section>
+    <section id="corruptionMap" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>🗺️ দুর্নীতির মানচিত্র</h2>
+      <div class="module-content">
+        <div class="fake-map heatmap anim-fade-in"></div>
+        <div class="map-legend">
+          <span class="legend-box high"></span> উচ্চ
+          <span class="legend-box medium"></span> মাঝারি
+          <span class="legend-box low"></span> কম
+        </div>
+      </div>
+    </section>
+    <section id="budget" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>💰 টাকার হিসাব</h2>
+      <div class="module-content center">
+        <img src="assets/images/budget-pie.png" class="budget-img anim-fade-in" alt="Budget Pie">
+        <div>ব্যবস্থাপনা: স্বাস্থ্য ৩০% | রাস্তাঘাট ৪০% | শিক্ষা ২০% | অন্যান্য ১০%</div>
+      </div>
+    </section>
+    <section id="rights" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>📚 অধিকার জানো</h2>
+      <div class="module-content">
+        <div class="topic-list anim-slide-in">
+          <div>আইনি অধিকার</div>
+          <div>নাগরিক অধিকার</div>
+          <div>তথ্য জানার অধিকার</div>
+        </div>
+      </div>
+    </section>
+    <section id="anonymous" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>🕵️ নীরব চিৎকার</h2>
+      <div class="module-content center">
+        <form>
+          <input placeholder="সমস্যার শিরোনাম">
+          <textarea placeholder="বিস্তারিত লিখুন"></textarea>
+          <button class="cta" type="button" onclick="showToast('গোপন রিপোর্ট পাঠানো হয়েছে!')">জমা দিন</button>
+        </form>
+      </div>
+    </section>
+    <section id="leaderboard" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>🏅 নীরব বীরেরা</h2>
+      <div class="module-content">
+        <ol class="leaderboard anim-fade-in">
+          <li>👑 রফিকুল ইসলাম (১৪০ পয়েন্ট)</li>
+          <li>🥈 সেলিনা বেগম (১১০ পয়েন্ট)</li>
+          <li>🥉 শাহেদ হাসান (৯৫ পয়েন্ট)</li>
+        </ol>
+      </div>
+    </section>
+    <section id="calendar" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>📅 ঘটনাপঞ্জি</h2>
+      <div class="module-content">
+        <div class="event-list anim-slide-in">
+          <div>১২ জুলাই: "ক্লিন আপ ক্যাম্পেইন"</div>
+          <div>১৫ জুলাই: "রক্তদান উৎসব"</div>
+        </div>
+      </div>
+    </section>
+    <section id="memes" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>🎨 মিম বাহিনী</h2>
+      <div class="module-content">
+        <div class="meme-card anim-fade-in">
+          <img src="assets/images/meme1.jpg" alt="" width="100%">
+          <div>ক্যাপশন: "বৃষ্টি মানেই ব্রাহ্মণবাড়িয়া ট্রাফিক জ্যাম!"</div>
+        </div>
+      </div>
+    </section>
+    <section id="missions" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>🧩 নাগরিক মিশন</h2>
+      <div class="module-content">
+        <div class="mission-card anim-slide-in">
+          <div>১টি সমস্যা রিপোর্ট করুন</div>
+          <button class="cta small" onclick="showToast('অভিযান সম্পন্ন!')">সম্পন্ন করুন</button>
+        </div>
+        <div class="mission-card anim-slide-in">
+          <div>১ জন প্রতিবেশীকে সাহায্য করুন</div>
+          <button class="cta small" onclick="showToast('অভিযান সম্পন্ন!')">সম্পন্ন করুন</button>
+        </div>
+      </div>
+    </section>
+    <section id="lifeStories" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>🧠 জীবনের গল্প</h2>
+      <div class="module-content">
+        <div class="story-card anim-fade-in">
+          <div>মোঃ আলমগীর: "আমার ব্রাহ্মণবাড়িয়ার প্রথম স্কুলের স্মৃতি..."</div>
+        </div>
+      </div>
+    </section>
+    <section id="truthBomb" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>💣 সত্যের ধাক্কা</h2>
+      <div class="module-content center">
+        <div class="truth-card anim-fade-in">
+          <div>“৪৫% নাগরিক জানেন না তাদের তথ্য জানার অধিকার!”</div>
+          <div class="upvote-btn" onclick="showToast('আপনি ভোট দিয়েছেন!')">👍 ভোট দিন</div>
+        </div>
+      </div>
+    </section>
+    <section id="impactWall" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>🖼️ পরিবর্তনের দেয়াল</h2>
+      <div class="module-content">
+        <div class="impact-card anim-slide-in">
+          <div>বাজার রোড (আগে/পরে)</div>
+          <img src="assets/images/beforeafter.jpg" width="100%">
+        </div>
+      </div>
+    </section>
+    <section id="awards" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>👑 জনতার দরবার</h2>
+      <div class="module-content">
+        <div class="award-card anim-fade-in">
+          <div>মাসিক সেরা: শাহানা আক্তার</div>
+        </div>
+        <div class="award-card anim-fade-in">
+          <div>ভোট দিন আপনার পছন্দের জন্য!</div>
+          <button class="cta small" onclick="showToast('ভোট গ্রহণ হয়েছে!')">ভোট দিন</button>
+        </div>
+      </div>
+    </section>
+    <section id="profile" class="module-screen">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <h2>👤 আমার প্রোফাইল</h2>
+      <div class="profile-content center anim-fade-in">
+        <div class="avatar">👤</div>
+        <div>নাম: ইউজার</div>
+        <div>ব্যাজ: <span class="badge resolved">সক্রিয় নাগরিক</span></div>
+        <div>অবদান: ২০</div>
+      </div>
+    </section>
+    <!-- Toast for notifications -->
+    <div id="toast"></div>
+  </main>
+  <footer>
+    <span>&copy; 2025 ব্রাহ্মণবাড়িয়া বাসি</span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
